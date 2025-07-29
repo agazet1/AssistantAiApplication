@@ -1,0 +1,35 @@
+<div class="chat-container" style="width: 50%; height: 100%">
+  <div class="autoscroll" #scrollContainer>
+    <mat-list >
+        <mat-list-item *ngFor="let msg of messages">
+        <div class="message">
+          <h3 class="header">{{ msg.sender === 'bot' ?  'Bot' : 'Ja'}}</h3>
+          <h5 *ngIf="msg.date">{{ msg.date | date:'yyyy-MM-dd HH:mm:ss' }}</h5>
+          <p class="text" [innerHTML]="getFormattedMsg(msg.text)"></p>
+          <div class="actions" *ngIf="msg.sender === 'bot'">
+            <button mat-icon-button class="like-icon" (click)="rateResponse(msg.id, 'like')">
+                <mat-icon color="{{msg.rating==='like' ? 'accent' : ''}}">thumb_up</mat-icon>
+            </button>
+            <button mat-icon-button class="dislike-icon" (click)="rateResponse(msg.id, 'dislike')">
+                <mat-icon color="{{msg.rating==='dislike' ? 'accent' : ''}}">thumb_down</mat-icon>
+            </button>
+          </div>
+        </div>
+        </mat-list-item>
+    </mat-list>
+  </div>
+
+  <div class="input-area">
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Twoja wiadomość</mat-label>
+      <input matInput [formControl]="userInput" (keydown.enter)="sendMessage()" [disabled]="isGenerating">
+    </mat-form-field>
+
+    <div class="buttons">
+      <button mat-raised-button color="primary" (click)="sendMessage()" [disabled]="!userInput.value || isGenerating">Wyślij</button>
+      <button mat-raised-button color="warn" (click)="cancelGeneration()" *ngIf="isGenerating">Anuluj</button>
+      <button mat-raised-button class="history-btn" (click)="getHistory()" [disabled]="isGenerating">Historia</button>
+    </div>
+  </div>
+</div>
+

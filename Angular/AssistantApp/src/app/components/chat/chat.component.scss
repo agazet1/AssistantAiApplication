@@ -1,0 +1,57 @@
+.chat-container {
+    position: relative;
+}
+
+.input-area {
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:20%;
+}
+
+mat-list-item {
+  display: contents;
+  width: 100%;
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.text {
+  white-space: normal;
+  word-wrap: break-word;
+  display: flex;
+  flex-direction: column;
+}
+
+.autoscroll {
+  overflow: auto;
+  max-height: 60%;
+  margin-bottom: 1px;
+  position:relative;
+  top:18%;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.like-icon, .dislike-icon {
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.buttons {
+  display: flex;
+}
+
+.history-btn {
+  color: "rgba(0, 0, 0, 0.54)";
+  margin-left: auto;
+}
