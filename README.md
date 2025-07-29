@@ -22,10 +22,10 @@ The project is a prototype AI chatbot that simulates a simple assistant. Users c
 In the appsettings.json file, specify:
 ```bash
 {
-  ‘ConnectionStrings’: {
-    ‘DefaultConnection’: ‘YOUR_MSSQL_CONNECTION_STRING’
+  "ConnectionStrings": {
+    "DefaultConnection": "YOUR_MSSQL_CONNECTION_STRING"
   },
-  ‘FrontendUrl’: ‘http://localhost:4200’
+  "FrontendUrl": "http://localhost:4200"
 }
 ```
 **Frontend**
@@ -33,7 +33,7 @@ In the appsettings.json file, specify:
 In the assets/config/config.json file, set:
 ```bash
 {
-  ‘apiBaseUrl’: ‘https://localhost:7242/’
+  "apiBaseUrl": "https://localhost:7242/"
 }
 ```
 
